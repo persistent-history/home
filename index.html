@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Font Awesome-->
+        <script src="https://use.fontawesome.com/de41a2e486.js"></script>
+        <!--Import Gallery (Photoswipe)-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha256-iG1tiE5xJSJQhKdeOW4cPiSy+RTrnRKjjjrVQ0hexug=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha256-XvSk6Opq7XZ8oUcx213MtikXtbl5bbe4Q9tr4+NJBCg=" crossorigin="anonymous"></script>
+        <meta charset = "utf-8">
+        <!--Fix Mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Thumb Styling-->
+          <link rel="stylesheet" href="https://cdn.muut.com/1/plugin/thumb.css">
+        <!--Fix Glitch-->
+        <style type = "text/css">
+            body {
+                margin-right: 40%;
+            }
+        </style>
+        <!--Import jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!--Smooth Scroll-->
+        <script>
+            $(document).ready(function(){
+              // Add smooth scrolling to all links
+              $("a").on('click', function(event) {
+            
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                  // Prevent default anchor click behavior
+                  event.preventDefault();
+            
+                  // Store hash
+                  var hash = this.hash;
+            
+                  // Using jQuery's animate() method to add smooth page scroll
+                  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                  $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                  }, 800, function(){
+               
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                  });
+                } // End if
+              });
+            });
+            </script>
+        <title>Persistent History</title>
+        <!--Import Fonts-->
+        <style type = "text/css">
+          @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Oswald:200,300,400,500,600,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Slabo+27px');            
+            @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+            @import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800');
+        </style>
+        <!--Import CSS-->
+        <link rel = "stylesheet" type = "text/css" href = "OnScroll/css/animations.css">
+        <style type = "text/css">
+            head,body,html { height: 100%; }
+            body {
+                margin: 0px;
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+            #video-wrapper {
+                min-height: 100%;
+                min-width: 100%;
+                height: auto;
+                width: auto;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: -100;
+            }
+            #main-header {
+                font-family: "Dosis";
+                font-weight: 300;
+                color: white;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+                font-size: 56px;
+                margin-left: 60px;
+                margin-top: 3%;
+            }
+            #main-subtitle {
+                font-family: "Raleway";
+                font-weight: 300;
+                color: white;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+                font-size: 24px;
+                margin-left: 60px;
+            }
+            
+            /*--Hub Entry--*/
+            #entries {
+                position: absolute;
+                margin-left: 6%;
+            }
+            #entries-2 {
+                position: absolute;
+                margin-top: 0.4%;
+                margin-left: 30%;
+            }
+            #entries-3 {
+                position: absolute;
+                margin-left: 60%;
+            }
+            #main-icon {
+                border-radius: 50%;
+                min-height: 40px;
+                min-width: 40px;
+                height: 40px;
+                max-height: 40px;
+                width: 40px;
+                max-width: 40px;              
+            }
+            #main-icon:hover,#announcements-entry:hover,#forums-entry:hover,#rules-entry:hover,#guide-entry:hover,#dynmap-entry:hover,#shop-entry:hover,#helper-entry:hover,#gallery-entry:hover,#assassination-entry:hover,#support-entry:hover,#wiki-entry:hover {
+                cursor: pointer;
+            }
+            #main-text {
+                position: relative;
+                left: 1%;
+                bottom: 2%;
+                font-family: "Raleway";
+                font-weight: 300;
+                color: white;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+                font-size: 24px;            
+            }
+            @keyframes entry {
+                from {
+                    margin-left: 0px;
+                }
+                to {
+                    margin-left: 60px;
+                }
+            }
+            @keyframes exit {
+                from {
+                    margin-left: 60px;
+                }
+                to {
+                    margin-left: 0px;
+                }
+            }
+            #announcements-entry,#forums-entry,#rules-entry,#guide-entry,#dynmap-entry,#shop-entry,#helper-entry,#gallery-entry,#assassination-entry,#support-entry,#wiki-entry {
+                padding: 10px;
+            }
+            #announcements-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #announcements-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #forums-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #forums-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #rules-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #rules-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #guide-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #guide-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #dynmap-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #dynmap-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #shop-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #shop-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #helper-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #helper-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #gallery-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #gallery-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #assassination-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #assassination-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #support-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #support-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+            #wiki-entry:hover {
+                animation: entry 2s forwards;
+            }
+            #wiki-entry:not(:hover) {
+                animation: exit 2s forwards;
+            }
+        </style>
+        <!--Sector CSS-->
+        <style type = "text/css">
+            #announcementsSection {
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                height: 100%;
+                background-image: url("https://wallpaperbrowse.com/media/images/Background-4.jpg") !important;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #announcements-box {
+                background-color: white;
+                position: relative;
+                top: 5%;
+                left: 20%;
+                width: 60%;
+                height: 90%;
+                box-shadow: 1px 0px 60px 3px rgba(0,0,0,0.75);
+            }
+            #announcements-title {
+                font-family: "Montserrat";
+                font-weight: 700;
+                color: rgba(0,0,0,0.83);
+                font-size: 30px;
+                margin-left: 40px;
+                margin-top: 1%;
+                padding-right: 5%;
+            }
+            #announcements-rule {
+                margin-left: 40px;
+                margin-right: 20px;
+            }
+            #announcements-content {
+                font-family: "Raleway";
+                font-weight: 300;
+                color: rgba(0,0,0,0.83);
+                font-size: 18px;
+                margin-top: 2%;
+                margin-left: 45px;
+                height: 70%;
+                overflow-y: auto;
+                overflow-x: hidden;
+                margin-right: 1%;
+            }
+            #announcements-content::-webkit-scrollbar {
+                width: 1%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.0000000000000000001);
+            }
+            #announcements-content::-webkit-scrollbar-thumb {
+                width: 1%;
+                height: 5%;
+                background-color: rgba(150,150,150,0.3);
+                border-radius: 5px;
+            }
+            @keyframes scrollbar-hover {
+                from {
+                    border-radius: 5px;
+                    background-color: rgb(150,150,150);
+                }
+                to {
+                    border-radius: 0px;
+                    background-color: rgb(100,100,100);
+                }
+            }
+            @keyframes scrollbar-reverse-hover {
+                from {
+                    border-radius: 0px;
+                    background-color: rgb(100,100,100);
+                }
+                to {
+                    border-radius: 5px;
+                    background-color: rgb(150,150,150);
+                    cursor: pointer;
+                }
+            }
+            #announcements-content::-webkit-scrollbar-thumb:vertical:hover {
+                animation: scrollbar-reverse-hover 2s forwards;
+            }
+            #announcements-content::-webkit-scrollbar-thumb:vertical:not(:hover) {
+                animation: scrollbar-hover 2s forwards;
+            }
+            #buttons-container {
+                position: absolute;
+                top: 82%;
+                height: 100%;
+                left: 40px;
+            }
+            #announcements-button {
+                min-width: 10%;
+                border: 2px solid gray;
+                font-family: "Raleway";
+                color: gray;
+                font-size: 24px;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+                max-height: 10%;
+                border-radius: 40px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color: rgba(0,0,0,0.0000000001);
+                margin-top: 1%;
+                margin-left: 10px;
+            }
+            @keyframes button-hover {
+                from {
+                    background-color: rgba(0,0,0,0.000000001);
+                    color: gray;
+                    cursor: pointer;
+                }
+                to {
+                    background-color: gray;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+            @keyframes button-reverse-hover {
+                from {
+                    background-color: gray;
+                    color: white;
+                }
+                to {
+                    background-color: rgba(0,0,0,0.000000001);
+                    color: gray;
+                }
+            }
+            #announcements-button:hover {
+                animation: button-hover 2s forwards;
+            }
+            #announcements-button:not(:hover) {
+                animation: button-reverse-hover 2s forwards;
+            }
+            #announcements-button img {
+                position: relative;
+                bottom: 0.4% !important;
+            }
+            #announcements-date {
+                font-family: "Roboto";
+                color: rgba(0,0,0,0.83);
+                font-size: 24px;
+                font-weight: 300;
+                margin-left: 40px;
+                padding-bottom: 1%;
+            }
+        </style>
+        <!--Forums-->
+        <style type = "text/css">
+            #forumsSection {
+                position: absolute;
+                top: 200%;
+                width: 100%;
+                height: 100%;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .muut.moot.is-forum.m-webkit.m-pc.m-no-logged.m-allpage.m-no-threads {
+                width: 100%;
+                height: 100%;
+                max-height: 100%;
+                max-width: 100%;
+                overflow-y: auto !important;
+            }
+            #backToHome {
+                z-index: 999999999999999999;
+                visibility: hidden;
+                font-family: "Raleway";
+                font-weight: 300;
+                color: black;
+                background-color: rgba(0,0,0,0.0000000000001);
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                position: fixed;
+                bottom: 15px;
+                left: 40px;
+                border: 3px solid white;
+                text-decoration: none;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+            }
+            #home-button {
+                font-family: "Raleway";
+                font-weight: 300;
+                color: black;
+                background-color: rgba(0,0,0,0.0000000000001);
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                position: fixed;
+                bottom: 15px;
+                left: 40px;
+                border: 3px solid black;
+                text-decoration: none;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+            }
+            @keyframes hoverHome {
+                from {
+                    background-color: rgba(0,0,0,0.0000000000001);
+                    color: white;
+                }
+                to {
+                    background-color: rgba(255,255,255,1);
+                    color: black;
+                }
+            }
+            @keyframes reverseHoverHome {
+                from {
+                    background-color: rgba(255,255,255,1);
+                    color: black;
+                }
+                to {
+                    background-color: rgba(0,0,0,0.00000000000001);
+                    color: white;
+                }
+            }
+            
+            @keyframes newhoverHome {
+                from {
+                    background-color: rgba(0,0,0,0.0000000000001);
+                    color: black;
+                }
+                to {
+                    background-color: rgba(0,0,0,1);
+                    color: white;
+                }
+            }
+            @keyframes newreverseHoverHome {
+                from {
+                    background-color: rgba(0,0,0,1);
+                    color: white;
+                }
+                to {
+                    background-color: rgba(0,0,0,0.00000000000001);
+                    color: black;
+                }
+            }
+            #backToHome:hover {
+                animation: hoverHome 2s forwards;
+            }
+            #backToHome:not(:hover) {
+                animation: reverseHoverHome 2s forwards;
+            }
+            #home-button:hover {
+                animation: newhoverHome 2s forwards;
+            }
+            #home-button:not(:hover) {
+                animation: newreverseHoverHome 2s forwards;
+            }
+            
+            #editor-button {
+                z-index: 999999999999999999;
+                visibility: hidden;
+                font-family: "Raleway";
+                font-weight: 300;
+                color: black;
+                background-color: rgba(0,0,0,0.0000000000001);
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                position: fixed;
+                bottom: 15px;
+                right: 40px;
+                border: 3px solid white;
+                text-decoration: none;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+            }
+            #editor-button:hover {
+                animation: hoverHome 2s forwards;
+                cursor: pointer;
+            }
+            #editor-button:not(:hover) {
+                animation: reverseHoverHome 2s forwards;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Back to Home!-->
+        <a href = "#home" id = "backToHome">
+            HOME
+        </a>
+        <a id = "home" style = "position: absolute; top: -10%;"></a>
+        <video width = "100%" height = "100%" id = "video-wrapper" autoplay loop>
+            <source src="main_background.mp4">
+        </video>
+        <div class='animatedParent'>
+        	<div class='animated fadeInLeftShort' id = "main-header">Persistent History</div>
+        	<div id = "main-subtitle" class = 'animated fadeInLeftShort delay-250'>Minecraft with a historical twist.</div>
+        	<div id = "entries">
+            	<div id = 'announcements-entry'>
+            	    <a href = "#announcements" style = "text-decoration: none;">
+                	    <img src = "http://www.iconarchive.com/download/i86992/graphicloads/colorful-long-shadow/Announcement.ico" style = "margin-top: 2%;" id = "main-icon" class = 'animated fadeInLeftShort delay-500'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-500'>Announcements</span>
+            	    </a>
+            	</div>
+            	<div id = 'forums-entry'>
+                    <a href = "#forums" style = "text-decoration: none;" id = "enter-forums">
+                        <img src = "http://capindus.com/wp-content/uploads/2015/02/Icon-Forum.png" id = "main-icon" class = 'animated fadeInLeftShort delay-600'>
+                        <span id = "main-text" class = 'animated fadeInLeftShort delay-600'>
+                            Forums
+                        </span>
+                    </a>
+            	</div>
+            	<div id = 'rules-entry'>
+            	    <a href = "#rules" style = "text-decoration: none;">
+                	    <img src = "http://www.iconarchive.com/download/i75808/martz90/circle/books.ico" id = "main-icon" class = 'animated fadeInLeftShort delay-700'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-700'>
+                	        Rules
+                	    </span>
+            	    </a>
+            	</div>
+            	<div id = 'guide-entry'>
+            	    <a href = "#guide" style = "text-decoration: none;">
+                	    <img src = "https://freeiconshop.com/wp-content/uploads/edd/book-open-flat.png" id = "main-icon" class = 'animated fadeInLeftShort delay-800'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-800'>
+                	        Guide
+                	    </span>
+            	    </a>
+            	</div>
+        	</div>
+        	<div id = "entries-2">
+        	    <div id = 'dynmap-entry'>
+        	        <a href = "#dynmap" style = "text-decoration: none;">
+                	    <img src = "https://housing.umn.edu/sites/housing.umn.edu/files/map_parking_icon-01.png" id = "main-icon" class = 'animated fadeInLeftShort delay-900'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-900'>
+                	        Dynmap
+                	    </span>
+            	    </a>
+            	</div>
+            	<div id = 'shop-entry'>
+            	    <a href = "#shop" style = "text-decoration: none;">
+                	    <img src = "http://www.freeiconspng.com/uploads/money-icon-29.png" id = "main-icon" class = 'animated fadeInLeftShort delay-1000'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-1000'>
+                	        Donate
+                	    </span>
+            	    </a>
+            	</div>
+            	<div id = 'helper-entry'>
+            	    <a href = "#helper-application" style = "text-decoration: none;">
+                	    <img src = "http://www.iconarchive.com/download/i87461/graphicloads/medical-health/hand.ico" id = "main-icon" class = 'animated fadeInLeftShort delay-1100'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-1100'>
+                	        Helper App
+                	    </span>
+            	    </a>
+            	</div>
+            	<div id = 'gallery-entry' onclick = "openPhotoSwipe();">
+            	    <img src = "http://icons.iconarchive.com/icons/vcferreira/firefox-os/256/gallery-icon.png" id = "main-icon" class = 'animated fadeInLeftShort delay-1200'>
+            	    <span id = "main-text" class = 'animated fadeInLeftShort delay-1200'>
+            	        Gallery
+            	    </span>
+            	</div>
+        	</div>
+        	<div id = "entries-3">
+        	    
+        	    <div id = 'assassination-entry'>
+        	        <a href = "#assassination-app" style = "text-decoration: none;">
+                	    <img src = "http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Drop-icon.png" id = "main-icon" class = 'animated fadeInLeftShort delay-1300'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-1300'>
+                	        Assassination App
+                	    </span>
+            	    </a>
+            	</div>
+            	<div id = 'support-entry'>
+            	    <a href = "#support-app" style = "text-decoration: none;">
+                	    <img src = "http://www.iconarchive.com/download/i86026/graphicloads/100-flat-2/arrow-up.ico" id = "main-icon" class = 'animated fadeInLeftShort delay-1400'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-1400'>
+                	        Support
+                	    </span>
+            	    </a>
+            	</div>
+            	<div id = 'wiki-entry'>
+            	    <a href = "http://persistent-history.wikia.com/wiki/Persistent_History_Wiki"  style = "text-decoration: none;" target = "_blank">
+                	    <img src = "http://sharepointmaven.com/wp-content/uploads/2016/11/wiki-icon.png" id = "main-icon" class = 'animated fadeInLeftShort delay-1500'>
+                	    <span id = "main-text" class = 'animated fadeInLeftShort delay-1500'>
+                	        Wiki
+                	    </span>
+            	    </a>
+            	</div>
+        	</div>
+        </div>
+        <div class = 'animatedParent' id = 'announcementsSection'>
+            <a id = 'announcements'></a>
+            <div id = 'announcements-box'>
+                &nbsp;
+                <div id = 'announcements-title'></div>
+                <div id = 'announcements-date'></div>
+                <div id = '' style = 'height: 1px; margin-left: 80px; margin-right: 80%; background-color: gray;'></div>
+                <div id = 'announcements-content'></div>
+                <div id = 'buttons-container'>
+                    <a href = "#home" id = "announcements-button" style = "text-decoration: none;">
+                        <img src = "https://maxcdn.icons8.com/Share/icon/p1em/Very_Basic//home1600.png" height = "20" width = "20" style = "position: relative; top: 2px;">
+                        Home
+                    </a>
+                    <button onclick = "" id = "announcements-button">
+                        <img src = "https://maxcdn.icons8.com/Share/icon/ios7/Arrows//back1600.png" height = "20" width = "20" style = "position: relative; top: 2px;">
+                        Previous
+                    </button>
+                    <button onclick = "" id = "announcements-button">
+                        <img src = "https://png.icons8.com/forward/win10/1600" height = "20" width = "20" style = "position: relative; top: 2px;">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class = 'animatedParent' id = 'forumsSection'>
+            <a id = 'forums'></a>
+            <a id = '!/feed'></a>
+           <a class="muut" href="https://muut.com/i/persistenthistory">persistenthistory</a> <script src="//cdn.muut.com/1/moot.min.js"></script>
+           
+              <script src="https://cdn.muut.com/1/plugin/thumb.js"></script>
+              <script type = "text/javascript">
+                  setInterval(function(){
+                      for (i = 0; i < document.getElementsByClassName("m-body").length; i++) {
+                          mainText = document.getElementsByClassName("m-body")[i].innerHTML;
+                          outputText = mainText.replace(/&lt;/g,"<");
+                          outputText = outputText.replace(/&gt;/g,">");
+                          outputText = outputText.replace(/”/g,"");
+                          outputText = outputText.replace(/“/g,"");
+                          outputText = outputText.replace(/=""/g,"");
+                          outputText = outputText.replace(/<p>/g,"");
+                          outputText = outputText.replace(/<\/?p[^>]*>/g, "");
+                          outputText = outputText.replace(/background-color:"/g,'background-color:');
+                          document.getElementsByClassName("m-body")[i].innerHTML = outputText;
+                          console.log(outputText);
+                      }
+                  },100)
+              </script>
+           <button onclick = "openWYSIWYG();" id = "editor-button">Text Editor</button>
+           <!--Local CSS for Editor-->
+           <style type = "text/css">
+               @import url("https://fonts.googleapis.com/css?family=Dosis|Candal");
+               #wysiwyg-container {
+                   display: none;
+                   background-color: white;
+                   border-radius: 10px;
+                   height: 70%;
+               }
+                
+                a {
+                  cursor: pointer;
+                }
+                
+                #editor {
+                  box-shadow: 0 0 2px #CCC;
+                  min-height: 150px;
+                  overflow: auto;
+                  padding: 1em;
+                  margin-top: 20px;
+                  resize: vertical;
+                  outline: none;
+                }
+                
+                .toolbar {
+                  text-align: center;
+                }
+                
+                .toolbar a,
+                .fore-wrapper,
+                .back-wrapper {
+                  border: 1px solid #AAA;
+                  background: #FFF;
+                  font-family: 'Candal';
+                  border-radius: 1px;
+                  color: black;
+                  padding: 5px;
+                  width: 1.5em;
+                  margin: -2px;
+                  margin-top: 10px;
+                  display: inline-block;
+                  text-decoration: none;
+                  box-shadow: 0px 1px 0px #CCC;
+                }
+                
+                .toolbar a:hover,
+                .fore-wrapper:hover,
+                .back-wrapper:hover {
+                  background: #f2f2f2;
+                  border-color: #8c8c8c;
+                }
+                
+                a[data-command='redo'],
+                a[data-command='strikeThrough'],
+                a[data-command='justifyFull'],
+                a[data-command='insertOrderedList'],
+                a[data-command='outdent'],
+                a[data-command='p'],
+                a[data-command='superscript'] {
+                  margin-right: 5px;
+                  border-radius: 0 3px 3px 0;
+                }
+                
+                a[data-command='undo'],
+                .fore-wrapper,
+                a[data-command='justifyLeft'],
+                a[data-command='insertUnorderedList'],
+                a[data-command='indent'],
+                a[data-command='h1'],
+                a[data-command='subscript'] {
+                  border-radius: 3px 0 0 3px;
+                }
+                
+                a.palette-item {
+                  height: 1em;
+                  border-radius: 3px;
+                  margin: 2px;
+                  width: 1em;
+                  border: 1px solid #CCC;
+                }
+                
+                a.palette-item:hover {
+                  border: 1px solid #CCC;
+                  box-shadow: 0 0 3px #333;
+                }
+                
+                .fore-palette,
+                .back-palette {
+                  display: none;
+                }
+                
+                .fore-wrapper,
+                .back-wrapper {
+                  display: inline-block;
+                  cursor: pointer;
+                }
+                
+                .fore-wrapper:hover .fore-palette,
+                .back-wrapper:hover .back-palette {
+                  display: block;
+                  float: left;
+                  position: absolute;
+                  padding: 3px;
+                  width: 256px;
+                  background: #FFF;
+                  border: 1px solid #DDD;
+                  box-shadow: 0 0 5px #CCC;
+                  height: 140px;
+                }
+                
+                .fore-palette a,
+                .back-palette a {
+                  background: #FFF;
+                  margin-bottom: 2px;
+                }
+                
+                /*--Prompts--*/
+                
+                .ui-dialog-title {
+                    font-family: "Montserrat";
+                    font-weight: 400;
+                }
+                
+                .ui-dialog-content {
+                    font-family: "Raleway";
+                    font-weight: 300;
+                }
+                
+                .ui-dialog-content button {
+                    font-family: "Roboto";
+                    font-weight: 300;
+                    color: white;
+                    border: 0px;
+                    background-color: rgba(60,60,240,0.7);
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+                #editor {
+                    height: 70%;
+                    z-index: 9;
+                }
+           </style>
+           <!--Wysiwyg Toolbar-->
+           <div id = "wysiwyg-container" style = "position: fixed; top: 5%; left: 5%; width: 90%; height: 70%;">
+           <div class="toolbar">
+              <a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
+              <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
+              <div class="fore-wrapper"><i class='fa fa-font' style='color:#C96;'></i>
+                <div class="fore-palette">
+                </div>
+              </div>
+              <div class="back-wrapper"><i class='fa fa-font' style='background:#C96;'></i>
+                <div class="back-palette">
+                </div>
+              </div>
+              <a href="#" data-command='bold'><i class='fa fa-bold'></i></a>
+              <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
+              <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
+              <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
+              <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
+              <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
+              <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
+              <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
+              <a href="#" data-command='indent'><i class='fa fa-indent'></i></a>
+              <a href="#" data-command='outdent'><i class='fa fa-outdent'></i></a>
+              <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
+              <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
+              <a href="#" data-command='h1'>H1</a>
+              <a href="#" data-command='h2'>H2</a>
+              <a href="#" data-command='createlink'><i class='fa fa-link'></i></a>
+              <a href="#" data-command='unlink'><i class='fa fa-unlink'></i></a>
+              <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
+              <a href="#" data-command='p'>P</a>
+              <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
+              <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>
+              
+              <a href="#" data-command='fontName'>F</a>
+              <a href="#" data-command='fontSize'>A</a>
+              
+              <a href="#" onclick = "closeEditor();">x</a>
+              <a href="#" onclick = "codeexport();"><i class='fa fa-arrow-right'></i></a>
+              
+              <br>
+              
+            </div>
+            <div id='editor' contenteditable style = "font-family: Lato;">
+              
+            </div>
+            
+            <div id="font-use-dialog" title="Select a Font to Use:" style = "visibility: hidden;">
+              <p>Select a font to use:</p>
+              <select id = "font-value">
+                  <option value = "Dosis" style = "font-family: Dosis">Dosis</option>
+                  <option value = "Georgia" style = "font-family: Georgia">Georgia</option>
+                  <option value = "Lato" style = "font-family: Lato" selected>Lato</option>
+                  <option value = "Montserrat" style = "font-family: Montserrat">Montserrat</option>
+                  <option value = "Open Sans" style = "font-family: Open Sans">Open Sans</option>
+                  <option value = "Oswald" style = "font-family: Oswald">Oswald</option>
+                  <option value = "Raleway" style = "font-family: Raleway">Raleway</option>
+                  <option value = "Roboto" style = "font-family: Roboto">Roboto</option>
+                  <option value = "Slabo 27px" style = "font-family: Slabo 27px">Slabo 27px</option>
+                  <option value = "Tahoma" style = "font-family: Tahoma">Tahoma</option>
+                  <option value = "Times New Roman" style = "font-family: Times New Roman">Times New Roman</option>
+                  <option value = "sans-serif" style = "font-family: sans-serif">Sans-Serif</option>
+              </select>
+              <button onclick = "confirmFont();">
+                  Confirm
+              </button>
+            </div>
+            
+            <div id="fontSize-use-dialog" title="Select a Size:" style = "visibility: hidden;">
+                <p>Select a size to use:</p>
+                <select id = "font-size-value">
+                  <option value = "1" style = "font-size: 0.67em">Size 1</option>
+                  <option value = "2" style = "font-size: 0.83em">Size 2</option>
+                  <option value = "3" style = "font-size: 1em">Size 3</option>
+                  <option value = "4" style = "font-size: 1.5em">Size 4</option>
+                  <option value = "5" style = "font-size: 2em">Size 5</option>
+                  <option value = "6" style = "font-size: 2.5em">Size 6</option>
+                  <option value = "7" style = "font-size: 3em">Size 7</option>
+              </select>
+              
+              <button onclick = "confirmSize();">
+                  Confirm
+              </button>
+            </div>
+            
+            <div id="image-use-dialog" title="Enter Image URL:" style = "visibility: hidden;">
+                <p>Enter URL of Image:</p>
+                
+                <input type = "text" id = "image-value" style = 'font-family: "Dosis"; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px; height: 24px; font-size: 22px; border-radius: 22px; border: 1px solid gray;'>
+                <br>
+              
+              <button onclick = "confirmImage();">
+                  Confirm
+              </button>
+            </div>
+            
+            <div id="link-use-dialog" title="Enter Link URL:" style = "visibility: hidden;">
+                <p>Enter URL of Link:</p>
+                
+                <input type = "text" id = "link-value" style = 'font-family: "Dosis"; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px; height: 24px; font-size: 22px; border-radius: 22px; border: 1px solid gray;'>
+                <br>
+              
+              <button onclick = "confirmLink();">
+                  Confirm
+              </button>
+            </div>
+            
+            <div id="export-use-dialog" title="Copy to Clipboard:" style = "visibility: hidden;">
+                <p>Simply copy and paste the code below into the desired reply/post section.</p>
+                
+                <textarea id = "codeExport" style = "width: 100%;">
+                    
+                </textarea>
+                <br>
+            </div>
+            
+            </div>
+            <script>
+                function closeEditor () {
+                    closeWYSIWYG();
+                }
+                
+                function codeexport () {
+                    document.getElementById("codeExport").value = document.getElementById("editor").innerHTML;
+                    document.getElementById("export-use-dialog").setAttribute("style","visibility: visible;")   
+                    $( function() {
+                        $( "#export-use-dialog" ).dialog();
+                    } );
+                }
+                
+                //Implement In Emergencies Only
+                
+                /*--$( "#font-use-dialog" ).dialog({
+                  draggable: false
+                });
+                $( "#fontSize-use-dialog" ).dialog({
+                  draggable: false
+                });--*/
+                
+              var colorPalette = ['ffffff','bebebe','989898','7a7a7a','4e4e4e','3e3e3e','282828','181818','f3b2b1','f3d9b1','f3efb1','caf3b1','b1dcf3','b1c6f3','ccb1f3','eeacf9','dd2423','dd9323','ddd123','6cdd23','239edd','2360dd','6e23dd','d113ee','761413','764f13','767013','3a7613','135476','133376','3b1376','6f0a7f'];
+              var forePalette = $('.fore-palette');
+              var backPalette = $('.back-palette');
+            
+              for (var i = 0; i < colorPalette.length; i++) {
+                forePalette.append('<a href="#" data-command="forecolor" data-value="' + '#' + colorPalette[i] + '" style="background-color:' + '#' + colorPalette[i] + ';" class="palette-item"></a>');
+                backPalette.append('<a href="#" data-command="backcolor" data-value="' + '#' + colorPalette[i] + '" style="background-color:' + '#' + colorPalette[i] + ';" class="palette-item"></a>');
+              }
+              
+              function confirmFont () {
+                 document.execCommand("fontName", false, document.getElementById("font-value").value);
+              }
+              
+              function confirmSize () {
+                  document.execCommand("fontSize", false, document.getElementById("font-size-value").value);
+              }
+              
+              function confirmImage () {
+                  document.execCommand("insertimage", false, document.getElementById("image-value").value);
+              }
+              
+              function confirmLink () {
+                  document.execCommand("createlink", false, document.getElementById("link-value").value);
+              }
+            
+              $('.toolbar a').click(function(e) {
+                var command = $(this).data('command');
+                if (command == 'h1' || command == 'h2' || command == 'p') {
+                  document.execCommand('formatBlock', false, command);
+                } else document.execCommand($(this).data('command'), false, null);
+                if (command == 'forecolor' || command == 'backcolor') {
+                  document.execCommand($(this).data('command'), false, $(this).data('value'));
+                } else document.execCommand($(this).data('command'), false, null);
+                if (command == 'createlink') {
+                    document.getElementById("link-use-dialog").setAttribute("style","visibility: visible;")  
+                    $( function() {
+                        $( "#link-use-dialog" ).dialog();
+                    } );
+                } else document.execCommand($(this).data('command'), false, null);
+                if (command == 'insertimage') {
+                    document.getElementById("image-use-dialog").setAttribute("style","visibility: visible;")  
+                    $( function() {
+                        $( "#image-use-dialog" ).dialog();
+                    } );
+                } else document.execCommand($(this).data('command'), false, null);
+                if (command == 'fontName') {
+                    document.getElementById("font-use-dialog").setAttribute("style","visibility: visible;")   
+                    $( function() {
+                        $( "#font-use-dialog" ).dialog();
+                    } );
+                } else document.execCommand($(this).data('command'), false, null);
+                
+                if (command == 'fontSize') {
+                    document.getElementById("fontSize-use-dialog").setAttribute("style","visibility: visible;")   
+                    $( function() {
+                        $( "#fontSize-use-dialog" ).dialog();
+                    } );
+                } else document.execCommand($(this).data('command'), false, null);
+                
+                if (command == 'bold') {
+                    document.execCommand("bold", false, null);
+                } else document.execCommand($(this).data('command'), false, null);
+              });
+            </script>
+        </div>
+        <!--Rules CSS-->
+        <style type = "text/css">
+            #rulesSection {
+                position: absolute;
+                top: 300%;
+                width: 100%;
+                height: 100%;
+                background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c1/Truman_signing_North_Atlantic_Treaty.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            #rules-box {
+                position: absolute;
+                top: 5%;
+                left: 10%;
+                width: 80%;
+                height: 90%;
+                max-height: 90%;
+                background-color: white;
+                box-shadow: 1px 0px 60px 3px rgba(0,0,0,0.75);
+            }
+            #rules-container {
+                height: 80%;
+                color: rgba(0,0,0,0.83);
+                font-family: "Roboto";
+                font-weight: 300;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            #rules-header {
+                font-family: "Montserrat";
+                font-weight: 700;
+                font-size: 36px;
+                padding-left: 10px;
+                padding-right: 10px;
+                border-bottom: 1px solid black;
+                margin-left: 60px;
+                margin-right: 60px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            #maximize {
+                background-color: green;
+                color: white;
+                font-size: 24px;
+                border: 0px;
+                min-width: 32px;
+                min-height: 32px;
+                max-width: 32px;
+                max-height: 32px;
+                border-radius: 50%;
+                margin-left: 40px;
+            }
+            #maximize:hover {
+                cursor: pointer;
+            }
+            #minimize {
+                background-color: rgb(240,60,60);
+                color: white;
+                font-size: 24px;
+                border: 0px;
+                min-width: 32px;
+                min-height: 32px;
+                max-width: 32px;
+                max-height: 32px;
+                border-radius: 50%;
+            }
+            #minimize:hover {
+                cursor: pointer;
+            }
+            #rules-container #home-button,#home-button {
+                position: absolute;
+                top: 90%;
+                left: 3%;
+            }
+            .rules-section {
+                font-family: "Raleway";
+                font-weight: 300;
+                margin-left: 40px;
+                margin-right: 15px;
+            }
+            #rules-container::-webkit-scrollbar {
+                width: 1%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.0000000000000000001);
+            }
+            #rules-container::-webkit-scrollbar-thumb {
+                width: 1%;
+                height: 5%;
+                background-color: rgba(150,150,150,0.3);
+                border-radius: 5px;
+            }
+            #rules-container::-webkit-scrollbar-thumb:vertical:hover {
+                animation: scrollbar-reverse-hover 2s forwards;
+            }
+            #rules-container::-webkit-scrollbar-thumb:vertical:not(:hover) {
+                animation: scrollbar-hover 2s forwards;
+            }
+            
+        </style>
+        <div class = 'animatedParent' id = 'rulesSection'>
+            <a id = 'rules'></a>
+            <div id = "rules-box">
+            <div id = "rules-container">
+                <div id = "rules-header">
+                    Rules
+                </div>
+                <div class = "rules-section">
+                Everyone is subject to the same three strikes system. Breaking one rule gives you one strike. Failing to comply with rules such as no advertising or no hacking will result in receiving three strikes. It should also be noted that if a player joins the server for the first time to immediately start causing trouble, i.e. they random death match everyone, we may just perma ban them.
+                <br>
+                    Strike 1:
+                    Warning/ Mute.
+                <br>
+                    Strike 2:
+                    Jail/ Tempban.
+                <br>
+                    Strike 3:
+                    Permanent Ban.
+                <br><br>
+                </div>
+                <button id = "maximize" onclick = "generalRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "generalRulesMinimize();">-</button>
+                General Rules
+                
+                <div id = "general-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Basic Rules</b>
+                    <br>
+                    1. No griefing or harassment.
+                    <br>
+                    2. Using modded clients or "hacks" will result in a ban. Same goes for "texture packs" that let you see through blocks.
+                    <br>
+                    3. Alternate accounts are not allowed.
+                    <br>
+                    4. No random death matches, except at the PVP arena.
+                    <br>
+                    5. Using Limited Creative to fly to other nations or continents is not allowed. Doing so may result in you being jailed or banned.
+                    <br>
+                    6. Mob grinders, automatic farms, and other lag machines are not allowed on this server.
+                    <br>
+                    7. Use of banned items and/or enchantments is prohibited, and may result in said items being confiscated, or you being banned.
+                    <br>
+                    8. Attempting to farm hundreds or even dozens of animals in a small area is not allowed as this causes lag and reduces the number of wild animals that spawn in the world for other players to hunt. You can keep a few milk cows or sheep but mass producing mobs will result in most of the mobs being killed by staff, and repeat offenders may be banned. If you have over a dozen animals in one pen or in multiple pens in a small area they will be at least partly removed or in extreme cases of abuse completely.
+                    <br>
+                    9. The use of Explosive Pickaxes for any kind of griefing, or destroying enemy walls/structures/ships/etc. will result in a Permanent Ban.
+                    <br>
+                    10. Using glitched guns for ANY reason will result in your inventory being completely cleared and a temporary ban.
+                    <br>
+                    11. You may not file any kind of application in the name of another player. It does not matter if they are unable to file the application themselves for whatever reason.
+                    <br>
+                    12. You may not use schematics mods.
+                </div><br><br>
+                <button id = "maximize" onclick = "chatRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "chatRulesMinimize();">-</button>
+                Chat Rules
+                <div id = "chat-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Chat Rules</b>
+                    <br>
+                    1. Racism is not permitted (except in RP).
+                    <br>
+                    2. Homophobia, heterophobia and transphobia are not permitted (except in RP).
+                    <br>
+                    3. You may discuss real world politics on the server, but keep it friendly.
+                    <br>
+                    4. Spam is of course a no.
+                    <br>
+                    5. So is advertising your Minecraft server or crappy product.
+                    <br>
+                    6. Do not argue with staff on the server. If you disagree with a decision you may express that on the forums.
+                    <br>
+                    7. Excessive swearing is not permitted.
+                    <br>
+                    8. Just don't be a jerk.
+                </div><br><br>
+               
+                <button id = "maximize" onclick = "nationRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "nationRulesMinimize();">-</button>
+                Nation Rules
+                <div id = "nation-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Nation Rules:</b>
+                    <br>
+                    1. Builds must be realistic, fit the time period, and look nice.
+                    <br>
+                    2. Staff members WILL remove leaders who fail to build up their nation or become inactive.
+                    <br>
+                    3. If a nation leader quits the server they automatically surrender any wars they are involved in.
+                    <br>
+                    4. Nation leaders may not just hand leadership over to a friend. Their successor must apply for the nation just as they normally would.
+                    <br>
+                    5. Setting your home in another nation without the leader's consent is a bannable offense.
+                    <br>
+                    5 a. This goes for the Merchant nation too.
+                    <br>
+                    6. The selling of land to foreign governments is forbidden.
+                    <br>
+                </div><br><br>
+                
+                <button id = "maximize" onclick = "assassinationRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "assassinationRulesMinimize();">-</button>
+                Assassination Rules
+                
+                <div id = "assassination-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Assassination Rules:</b>
+                    <br>
+                    1. You must apply to assassinate someone, else it will be called a random death match. Applications are private and regular players cannot see them.
+                    <br>
+                    2. You cannot assassinate a leader if they are in their peaceweek.
+                    <br>
+                    3. If a you kill a nation leader, that person does not have to abandon their faction OOC, but must make a new character.
+                    <br>
+                    4. At least one other person in the targets nation must be online at the time of being struck.
+                    <br>
+                    5. Nation leaders cannot perform assassinations. They must have someone else do it.
+                    <br>
+                </div><br><br>
+                <button id = "maximize" onclick = "banditryRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "banditryRulesMinimize();">-</button>
+                Banditry Rules
+                
+                <div id = "banditry-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Banditry/Piracy Rules</b>
+                    <br>
+                    1. An outlaw group is limited to 4 players maximum.
+                    <br>
+                    2. You must wait two days before raiding the same place.
+                    <br>
+                    3. The only building you can damage are city walls.
+                    <br>
+                    4. Normal naval rules apply.
+                    <br>
+                    5. You may not participate in full battles.
+                    <br>
+                    6. The defenders must have at least 3 people online.
+                    <br>
+                    7. You must make a thread about your group before you gain outlaw status. Failure to do so will result in your raids being noted as random death matches.
+                    <br>
+                    8. If all your members die during a raid, you may never raid that place again.
+                    <br>
+                    9. You cannot ally an outlaw group.
+                    <br>
+                </div><br><br>
+                
+                <button id = "maximize" onclick = "allianceRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "allianceRulesMinimize();">-</button>
+                Alliance Rules
+                
+                <div id = "alliance-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Alliance Rules</b>
+                    1. A nation can not have any more than 2 allies.
+                    <br>
+                    2. Only the primary attacking and defending nations may bring their allies into a war. Those allies may not bring additional allies.
+                    <br>
+                    3. In order to form an alliance with another nation you must both construct embassies for each other in your own nations.
+                    <br>
+                    4. Nation leaders who do not honor alliances they made can be denounced and their alliances severed.
+                    <br>
+                    5. A nation leader who has been denounced for any reason cannot form new alliances until the denouncement expires. (1 week)
+                    <br>
+                    6. If a nation's leader has been denounced you may sever any alliances you have with them with no penalty.
+
+                </div><br><br>
+                
+                <button id = "maximize" onclick = "vassalRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "vassalRulesMinimize();">-</button>
+                Vassal Rules
+                
+                <div id = "vassal-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Vassal Rules</b>
+                    <br>
+                    1. The leader of a vassal nation must answer directly to the leader of the owning nation.
+                    <br>
+                    2. A vassal may not declare war on its owning nation. There is one exception to this.
+                    <br>
+                    2a. A vassal can declare war on its owning nation IF they have been in some way transgressed upon.
+                    <br>
+                    3. Declaring war on a vassal means also declaring war on its owning nation, and vice-versa.
+                    <br>
+                    4. Applications for vassal nations should be accepted by the owning nation, as well as a neutral staff member.
+                    <br>
+                </div><br><br>
+                
+                <button id = "maximize" onclick = "roleplayRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "roleplayRulesMinimize();">-</button>
+                Roleplay Rules
+                
+                <div id = "roleplay-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Roleplay Rules</b>
+                    <br>
+                    1. No metagaming. (Using OOC knowledge while IC.)
+                    <br>
+                    2. You must have a character to RP. The only exception is that non-leaders may play as an unnamed soldier or guard during battles and raids.
+                    <br>
+                    3. All involved parties must consent for erotic, torture, or slave rp. Attempting to force any of these on another player without consent will result in a ban.
+                    <br>
+                    4. Any role play events may be voided by staff or if all involved parties consent to it.
+                    <br>
+                    5. All PvP outside of a war must have a reason to it within Role Play.
+                    <br>
+                    6. If you are caught trespassing in a nation you are not at war with, and they ask you to leave, you must do so. If you do not they may attack you.
+                    <br>
+                    7. Blocking the passage of a nation through the wilderness or their own territory is also a valid reason to denounce someone.
+                    <br>
+                    8. So is mobilizing an army or navy at someone's border, or building defensive structures near their border such as walls, trenches, fortresses, cannons, etc.
+                    <br>
+                    9. Any other action in role play which could be considered hostile toward other nations may be reason for their leaders to denounce you.
+                    <br>
+                    10. You may only denounce another nation's leader for actions they have taken in role play. You may not denounce someone for historical or personal reasons. Nor may you blame actions they have not taken on them.
+                    <br>
+                    11. Nation leaders who make frivolous denouncements in an attempt to warmonger or harass other players will be punished by having their denouncement voided and being denounced themselves, along with severing all alliances they currently hold. Example: "I'm denouncing you because you suck at RP and I don't like you."
+                    <br>
+                    12. Nation leaders must conduct themselves according to their government type.
+                    <br>
+                    13. Please ask staff before role playing anything outside the current time period. We will allow some minor things but for example, you can't invent electricity or airplanes in the 1700's.
+                </div><br><br>
+                <button id = "maximize" onclick = "movecraftRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "movecraftRulesMinimize();">-</button>
+                Movecraft Rules
+                
+                <div id = "movecraft-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Movecraft Rules</b>
+                    <br>
+                    1. All ships, hot air balloons, etc. must look at least somewhat realistic.
+                    <br>
+                    2. You can not use dispensers to shoot TNT, Flame Charges, etc.
+                    <br>
+                    3. You may not place cannons on hot air balloons as they would be too heavy realistically.
+                    <br>
+                    4. You may throw grenades and shoot guns from hot air balloons during raids or battles.
+                    <br>
+                    5. You are responsible for your own vessel so be careful not to crash it.
+                    <br>
+                    6. Do not abuse Movecraft too much as it can cause lag, try to use it sparingly for RP purposes.
+                    
+                </div><br><br>
+                <button id = "maximize" onclick = "nativeRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "nativeRulesMinimize();">-</button>
+                Native Rules
+                
+                <div id = "native-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Native Rules</b>
+                    <br>
+                    1. Natives may not use Shields or wear Armor.
+                    <br>
+                    2. Natives may only use guns they have purchased. They may not craft them.
+                    <br>
+                    3. Only Natives may use Blowguns and Tomahawks.
+                    <br>
+                    4. At /warp PVP, non-Natives may use Native builds (no armor, tomahawks, etc.) and Natives may use non-Native builds. (armor, guns, shield, etc.) You may not mix the two though by using a tomahawk/blowgun and also wearing armor or using a shield.
+                    <br>
+                    5. The minimum number of required players does not apply to Natives for raids/battles/etc. Natives may also raid their enemy whenever they like during war regardless of how many players they have on.
+                    <br>
+                    6. Natives may not use cannons/mortars, grenades, or any other kind of explosive.
+                    <br>
+                    7. Natives must create historically accurate builds for their tribe. They may not construct steam boats, steam wagons, hot air balloons, etc. They may only create small ships, tents, wooden huts, etc.
+                    <br>
+                </div><br><br>
+                
+                <button id = "maximize" onclick = "donatorRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "donatorRulesMinimize();">-</button>
+                Donator Rules
+                
+                <div id = "donator-rules" class = "rules-section" style = "display: none;">
+                    <br>
+                    <b>Donator Rules:</b>
+                    <br>
+                    1. You cannot have profanity in your nick/RP name.
+                    <br>
+                    2. You cannot use lc creative to fly over other people's walls/ cities/ settlements.
+                    <br>
+                    3. Do not go into gamemode creative during RP or PvP/ PvE.
+                    <br>
+                    4. Creative should be used for building and nothing else.
+                    <br>
+                    5. You cannot spawn in items for other players.
+                    <br>
+                </div><br><br>
+                
+                <button id = "maximize" onclick = "warRulesMaximize();">+</button>
+                <button id = "minimize" onclick = "warRulesMinimize();">-</button>
+                War Rules
+                
+                <div id = "war-rules" class = "rules-section" style = "display: none;">
+                    <b><u>War Rules</u></b>
+
+                    Terms:<br>
+                    Active Player- player who comes online at least every other day for a period of an hour or more and have been a member of one nation for at least 7 days<br>
+                    Raid- a small group from one nation going to “surprise attack” another nation at a location without the use of heavy armor.<br><br>
+                    
+                    War Rules:<br>
+                    1. Section 1: Main Nations<br>
+                    a. A nation may only declare 1 war on a nation at a time (to attack). This does not limit how many nations may declare war on a single nation, however, so playing the big kid on the block may not be the best strategy (Yes, you can be attacked by 8 nations at the same time as long as they aren’t breaking the ally cap).<br>
+                    b. Before declaring war, the attacking nation must denounce the opposing nation. The denunciation must be realistic and valid.<br>
+                    c. You cannot declare war on a nation until 7 days after they have their first leader.<br>
+                    d. At the completion of a war, if a leader was captured or killed, that nation cannot enter into a new war for 7 days after a new leader is chosen.<br>
+                    e. In the event of a war, both the attacking nation and defending nation must have 3 active players each.<br>
+                    f. If a leader quits the server, the nation will be led by a staff member or the former leader’s second in command, unless a new leader has already been appointed.<br>
+                    i. If the nation still has more than 3 active members, the war will continue<br>
+                    ii. If the nation has less than 3 active members, the opposing nation wins the war<br>
+                    iii. If the second in command comes into power, they may only lead the nation until the end of the war. After that they must apply for said nation.<br>
+                    g. A nation may only have 2 allies that may participate in a war.<br>
+                    h. Everything must stay relevant to the current time period, so no cobweb barriers or walls made of lava.<br><br>
+                    
+                    2. Section 2: Allies<br>
+                    a. Should an ally of the attacking nation choose to participate in a war as an ally, they do not need to denounce nor have another valid reason to declare war on the defending nation.<br>
+                    b. The ally must have at least 2 active players in order to participate in the war.<br>
+                    3. Section 3: Vassals<br>
+                    a. Vassals are not considered allies<br>
+                    b. Can be called to war as part of the nation that made it a vassal, however, should the vassal be the attacking nation, the nation that made it a vassal will be counted as one of its allies<br>
+                    4. Section 4: Mercenaries<br>
+                    a. May only participate in 1 battle for every 3 battles that happen, (i.e. Battle 1: With mercenary, Battles 2 & 3: Without Mercenary, Battle 4: With Mercenary, Battles 5 & 6: Without Mercenary, etc.)<br>
+                    b. Must be a rp character or a peasant (Leaders, Government Figures, and War related rp characters cannot be mercenaries)<br>
+                    c. May not participate in raids<br>
+                    5. Section 5: Griefing<br>
+                    a. The complete or partial destroying of non-military related builds or farms within your own territory during a war is considered griefing.
+                    6. Section 6: Winning a war<br>
+                    a. War may be won by one of the following ways:<br>
+                    i. One of the Nations surrender and a Peace Treaty is signed<br>
+                    ii. Either nation earns a total of 5 War Points (a nation may have a negative number of War Points)<br>
+                    iii. The defending nation having 3 War Points while the attacking nation has a zero War Points.<br>
+                    iv. A nation loses all of its cities (total conquest)<br><br>
+                    
+                    Battle Rules:<br>
+                    1. Section 1: Non-city Land Battles<br>
+                    a. A battle must be fought on the border between the two nations. Should the nations not share a land border, the nation must be invaded by sea. Should the nation not have either one of these, other nations must consent to the movement of troops through their territory.<br>
+                    b. A battle time must be agreed upon on the war application thread.<br>
+                    i. Stalling to agree on a battle time will result in removal from leadership from whoever is causing the delay.<br>
+                    c. The attacking nation may bring 50% more players than the defending nation to a battle (if the 50% causes a non-whole number, the number will be rounded down).<br>
+                    d. The defenders must have at least 2 active players online<br>
+                    e. Players participating in the battle must battle as their rp character if their character is related in any way to the army. Regular civilians may fight as unnamed soldiers.<br>
+                    f. If an rp character is “killed” during battle, the opposing side may declare the rp character dead or captured. The player may participate in future battles as unnamed soldiers.<br>
+                    g. Once a rp player is “killed or captured,” he/she may not enter into the battle again. Any kills made after being killed are considered void and will cause that player’s nation to lose half of a War Point.<br>
+                    h. Any aspect of limited creative mode may not be used by a player during a battle. Violation of this rule will result in that nation losing that battle, and will lose an additional 1 War Point (so 2 total War Points) as well as that player will have limited creative permanently removed. They may also be banned, depending on the circumstances.<br>
+                    i. The nation that wins the battle gains 1 War Point and will be able to claim a 10x10 chunk of the enemy territory around the battle area.<br>
+                    j. The nation that loses the battle loses 1 War Point<br><br>
+                    
+                    Section 2: Naval Battles<br>
+                    a. See “Battle Rules, Section 1: Non-City Land Battles, b-e, g-i<br>
+                    b. Players participating in the battle must battle as their rp character if their character is related in any way to the Navy. Regular civilians may fight as unnamed soldiers<br>
+                    c. Once a ship is taking water, it is considered sunk.<br>
+                    d. All battle tactics must be realistic (ie. No using water buckets to board enemy vessels)<br>
+                    e. A blockade consists of 2 or more ships and a battle must be fought in order to get past the blockade<br>
+                    f. Each attacking ship must have at least 1 player.<br>
+                    g. A ship is considered open when it is not occupied by at least 1 player<br>
+                    h. The battle is over when one nation no longer has a non-sunk ship or when all of its players are dead.<br>
+                    i. The nation that wins gains .5 War Points and<br>
+                    i. If attacking can pass the blockade<br>
+                    ii. If defending, maintains the blockade<br>
+                    j. The nation that loses, loses .5 War Points<br>
+                    3. Section 3: Coastal Battles<br>
+                    a. See “Battle Rules, Section 1: Non-City Land Battles, f<br>
+                    b. See “Battle Rules, Section 2: Naval Battles, a-d, f, and g<br>
+                    c. A battle is over once all players on one side are “killed or captured” or the attacking nation has all its ships sunk<br>
+                    d. If the attacking nation wins, they gain .5 War Points and a 5x5 chunk of land on the coast located at the area of the attack. The location of the attack must be a realistic landing point (i.e. a nation cannot perform a landing on the side of a cliff). The defending nation loses .5 War Points<br>
+                    e. If the defending nation wins, they gain 1 War Point and the attacking nation loses 1 War Point.<br><br>
+                    
+                    4. Section 4: City Battles<br>
+                    a. See “Battle Rules, Section 1: Non-City Land Battles, a-i<br>
+                    b. The border between the two nations must be next to a city for an attacking nation be able to attack the city.<br>
+                    c. To declare a city captured, all defenders must be killed or captured as well as the attacking nation’s banner/flag must be placed in a visible location somewhere in the city.<br>
+                    d. The nation that wins a City Battle gains 2 War Points and is awarded the conquered city and everything inside of it, being able to claim all of it for their faction.<br>
+                    e. The nation that loses a City Battle loses 2 War Points and must immediately leave the city as is. All locked chests will be unlocked by staff for use by the new owners.<br>
+                    Raid Rules:<br><br>
+                    
+                    Section 1: Raiding Party<br>
+                    a. See “Battle Rules, Section 1: Non-City Land Battles, c, e, and h.<br>
+                    b. A raiding party must consist of at least 3 people but no more than 5<br>
+                    c. Raids happen only in/around cities, ports, or forts.<br>
+                    d. When a player dies in a raid, he is killed. RP characters cannot be captured during a raid.<br>
+                    e. If all defenders are killed, the raiding nation gains 1 War Point and must immediately make an rp post in the forums.<br>
+                    2. Section 2: Defenders<br>
+                    a. See “Battle Rules, Section 1: Non-City Land Battles, h, and i
+                    b. The defenders may use previously placed cannons against the raiding party (i.e. a defender cannot make a new cannon during a raid).<br>
+                    c. If all members of the raiding party are killed, the raiding nation loses .5 War Points and must immediately make an rp post in the forums.<br><br>
+                    
+                    End of War Negotiations<br>
+                    1. Defending nation has 3 points while attacking nation has zero points<br>
+                    a. To negotiate a peace treaty, a neutral location will provide all the nations with a meeting place in order to discuss the terms. If a meeting place cannot be agreed on by the players, then staff will select one for them.<br>
+                    b. All official negotiations will be done within the local chat at the predetermined location<br>
+                    c. All participating nations may only send 1 representative to discuss the terms.<br>
+                    d. If no final treaty can be made at the conclusion of the first meeting, a second one will be held at a later date.<br>
+                    e. There shall be no more than 3 meetings held<br>
+                    f. Should no decision be made after 3 meetings, 1 representative each from 3 neutral nations (nations shall be agreed upon by the staff team) will decide the final terms of the treaty.<br>
+                </div><br><br>
+                
+                <!--KEEP AT BOTTOM OF CONTAINER-->
+                 <a href = "#home" id = "home-button">HOME</a>
+            </div></div>
+        </div>
+        <!--Guide-->
+        
+        <style type = "text/css">
+            #guideSection {
+                position: absolute;
+                top: 400%;
+                height: 100%;
+                width: 100%;
+                background-image: url("https://preview.ibb.co/bJtaaQ/books.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            .guide-section {
+                font-family: "Slabo 27px";
+                font-size: 14px;
+                color: rgba(0,0,0,0.83);
+            }
+            #guide-box {
+                position: absolute;
+                top: 5%;
+                left: 10%;
+                width: 80%;
+                height: 90%;
+                max-height: 90%;
+                background-color: white;
+                box-shadow: 1px 0px 60px 3px rgba(0,0,0,0.75);
+            }
+            #guide-container {
+                height: 80%;
+                color: rgba(0,0,0,0.83);
+                font-family: "Roboto";
+                font-weight: 300;
+                overflow-y: auto;
+                overflow-x: hidden;
+                margin-left: 40px;
+                margin-top: 15px;
+            }
+            #guide-header {
+                font-family: "Dosis";
+                font-size: 36px;
+                text-align: center;
+                margin-left: 20%;
+                margin-right: 20%;
+            }
+            #guide-box #home-button {
+                top: 90% !important;
+            }
+            #guide-container::-webkit-scrollbar {
+                width: 1%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.0000000000000000001);
+            }
+            #guide-container::-webkit-scrollbar-thumb {
+                width: 1%;
+                height: 5%;
+                background-color: rgba(150,150,150,0.3);
+                border-radius: 5px;
+            }
+            #guide-container::-webkit-scrollbar-thumb:vertical:hover {
+                animation: scrollbar-reverse-hover 2s forwards;
+            }
+            #guide-container::-webkit-scrollbar-thumb:vertical:not(:hover) {
+                animation: scrollbar-hover 2s forwards;
+            }
+            .guide-section img {
+                border: 3px solid black;
+                border-radius: 5px;
+            }
+        </style>
+        <div class = 'animatedParent' id = 'guideSection'>
+            <a id = 'guide'></a>
+            <div id = "guide-box">
+                <div id = "guide-container">
+                     <b style = "font-size: 48px;">Guide</b>:<br>
+                     <div class = "guide-section">
+                    <br><b style = "font-size: 24px;">Weapons:</b><br><br>
+                     As time progresses, more and more custom weapons will be added to the game. Check back here often to see if there are any updates.
+                     <br>
+                    Carbine:<br><br>
+                    
+                    <img src = "http://i.imgur.com/632l0gc.jpg" width = "400" height = "200">
+                    
+                    <br><br>
+                    
+                    Blunderbuss:<br><br>
+                    
+                    <img src = "https://i.gyazo.com/427dd669a6318e87796b6914172a3706.png"  width = "400" height = "200">
+                     
+                    <br>
+                    The Blunderbuss is a high power, short-range firearm, similar to the modern shotgun.<br><br>
+                    
+                    Musket:<br><br>
+                     
+                    <img src = "https://i.gyazo.com/1d5ac2ccbc96d9c0acd2f75b9a1b6d6d.png"  width = "400" height = "200">
+                     
+                    <br>
+                    The staple weapon for any army of the 1700s. Versitile enough to be used in any kind of battle.<br><br>
+                    
+                    Flintlock:<br><br>
+                    
+                    <img src = "https://i.gyazo.com/bed321f17ee57bfacefa25a713e8fbd9.png"  width = "400" height = "200">
+                     
+                    <br>
+                    A small little handgun, easy and fast to use, but less powerful than most other guns.<br><br>
+                    
+                    Dragon:<br><br>
+                    
+                    <img src = "https://i.gyazo.com/5b023c47ae40f94e13472028bc9c3158.png"  width = "400" height = "200">
+                     
+                    <br>
+                    A shorter, pistol form of the blunderbuss. <br><br>
+                    
+                    Grenade:<br><br>
+                    
+                    <img src = "https://i.gyazo.com/1dd250583871960b0bad7a2434178b58.png"  width = "400" height = "200">
+                     
+                    <br>
+                    Blow the s**t out of anyone that comes near you. Has a powerful blast range, though it may be slow to ignite.<br><br>
+                    
+                    
+                    Tomahawk:<br><br>
+                    
+                    <img src = "http://i.imgur.com/BhZGCYt.jpg"  width = "400" height = "200">
+                    
+                    <br>
+                    Used for bashing skulls.<br><br>
+                    
+                    Blowgun:<br><br>
+                    
+                    <img src = "http://i.imgur.com/nMXmBDe.jpg"  width = "400" height = "200"><br>
+                    
+                    
+                    Shoots poison darts.<br><br>
+                    <br><br>
+                    
+                    <br><b style = "font-size: 24px;">Other Items:</b><br><br>
+                
+                    This server allows you to craft certain items that would othewise be uncraftable in regular Minecraft. You can take a look at their custom recipies below:<br><br>
+    
+                    Saddle.<br><br>
+                    
+                    <img src = "https://i.gyazo.com/595bed3301b29cebd6d4ca2c08078052.png" width = "400" height = "200">
+                    
+                    <br><br>
+                    
+                    Nametag.<br><br>
+                    
+                    <img src = "https://i.gyazo.com/595bed3301b29cebd6d4ca2c08078052.png" width = "400" height = "200">
+                    
+                    <br><br>
+                    
+                    <a href = "#home" id = "home-button" style = "position: absolute; top: 80%; left: 2">HOME</a>
+                    </div>
+                    
+                    <br><b style = "font-size: 24px;">Chat Channels:</b><br><br>
+                    We have multiple different chats on this server, which have been listed below for your convenience.<br><br>
+
+                    /f c f - faction chat.<br><br>
+                    
+                    /f c p - global chat.<br><br>
+                    
+                    /g - switch to global chat.<br><br>
+                    
+                    /l - switch in and out of local chat.<br><br>
+                    
+                    /looc - local out of character chat.<br><br>
+                    
+                    /shout - shout.<br><br>
+                    
+                    /whisp - whisper.<br><br>
+                    
+                    /rp - used for in character expressions.<br><br>
+                    
+                    /erp - erotic role-play.<br><br>
+                    
+                    <br><b style = "font-size: 24px;">Chat Channels:</b><br><br>
+                    
+                    Three merchant ships have been strategically placed on the map that will sell various impossible or hard to get blocks and items. Players can fight over the territory nearest to them in order to have the best access to these merchant ships. More ships and/or items may be added at a later date if there is enough demand for it, or when industrialization calls for it. For now here are their general locations and what you can buy there:<br><br>
+
+                    Sweden - Biggest exporter of wood and paper.<br><br>
+                    
+                    x64 paper = $25<br>
+                    x12 clay blocks = $50<br>
+                    x3 gunpowder = $100<br>
+                    x4 glowstone = $100<br>
+                    x1 sea lantern = $100<br>
+                    x4 pumpkin seeds = $100<br>
+                    x64 oak/birch/spruce wood = $100<br>
+                    x64 dark oak wood = $200<br>
+                    x16 ink sac = $500<br>
+                    x1 blaze rod = $1000<br>
+                    x1 slimeball = $1000<br>
+                    x4 obsidian = $2000<br><br><br>
+                    
+                    
+                    France - Best place to buy different types of stone.<br><br>
+                    
+                    x4 nether wart = $50<br>
+                    x4 soul sand = $50<br>
+                    x12 clay blocks = $50<br>
+                    x4 glowstone = $100<br>
+                    x1 sea lantern = $100<br>
+                    x64 sugar cane = $100<br>
+                    x64 prismarine shard = $124<br>
+                    x64 chorus fruit = $124<br>
+                    x64 netherrack = $124<br>
+                    x16 end stone = $124<br>
+                    x1 shulker shell = $1000<br><br><br>
+                    
+                    
+                    Mediterranean - Dyes, exotic woods, and quartz.<br><br>
+                    
+                    x4 melon seeds = $50<br>
+                    x12 clay blocks = $50<br>
+                    x4 glowstone = $100<br>
+                    x1 sea lantern = $100<br>
+                    x64 nether quartz = $124<br>
+                    x64 jungle wood = $200<br>
+                    x64 acacia wood = $200<br>
+                    x64 dye/lapis/cocoa beans = $500<br>
+                    x64 Acacia leaves = $150<br>
+                    
+                    <br><b style = "font-size: 24px;">Gates:</b><br><br>
+                    
+                    <b>Add this sign next to your gate in order to activate it.
+
+                    Right click to toggle open or closed.</b><br><br>
+                    
+                    <img src = "https://i.gyazo.com/760a5f7f269dd3803f35de36aa16b98a.png" width = "600" height = "300"><br><br><br>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+        <script type = "text/javascript">
+            //Rules Section
+            function openWYSIWYG () {
+                document.getElementById("wysiwyg-container").style.display = "block";
+                document.getElementById("editor-button").setAttribute("onclick","closeWYSIWYG();");
+            }
+            function closeWYSIWYG () {
+                document.getElementById("wysiwyg-container").style.display = "none";
+                document.getElementById("editor-button").setAttribute("onclick","openWYSIWYG();");
+            }
+            function generalRulesMaximize () {
+                document.getElementById("general-rules").style.display = "block";
+            }
+            function generalRulesMinimize () {
+                document.getElementById("general-rules").style.display = "none";
+            }
+            function chatRulesMaximize () {
+                document.getElementById("chat-rules").style.display = "block";
+            }
+            function chatRulesMinimize () {
+                document.getElementById("chat-rules").style.display = "none";
+            }
+            function nationRulesMaximize () {
+                document.getElementById("nation-rules").style.display = "block";
+            }
+            function nationRulesMinimize () {
+                document.getElementById("nation-rules").style.display = "none";
+            }
+            function assassinationRulesMaximize () {
+                document.getElementById("assassination-rules").style.display = "block";
+            }
+            function assassinationRulesMinimize () {
+                document.getElementById("assassination-rules").style.display = "none";
+            }
+            function banditryRulesMaximize () {
+                document.getElementById("banditry-rules").style.display = "block";
+            }
+            function banditryRulesMinimize () {
+                document.getElementById("banditry-rules").style.display = "none";
+            }
+            function allianceRulesMaximize () {
+                document.getElementById("alliance-rules").style.display = "block";
+            }
+            function allianceRulesMinimize () {
+                document.getElementById("alliance-rules").style.display = "none";
+            }
+            function vassalRulesMaximize () {
+                document.getElementById("vassal-rules").style.display = "block";
+            }
+            function vassalRulesMinimize () {
+                document.getElementById("vassal-rules").style.display = "none";
+            }
+            
+            function roleplayRulesMaximize () {
+                document.getElementById("roleplay-rules").style.display = "block";
+            }
+            function roleplayRulesMinimize () {
+                document.getElementById("roleplay-rules").style.display = "none";
+            }
+            function movecraftRulesMaximize () {
+                document.getElementById("movecraft-rules").style.display = "block";
+            }
+            function movecraftRulesMinimize () {
+                document.getElementById("movecraft-rules").style.display = "none";
+            }
+            function nativeRulesMaximize () {
+                document.getElementById("native-rules").style.display = "block";
+            }
+            function nativeRulesMinimize () {
+                document.getElementById("native-rules").style.display = "none";
+            }
+            function donatorRulesMaximize () {
+                document.getElementById("donator-rules").style.display = "block";
+            }
+            function donatorRulesMinimize () {
+                document.getElementById("donator-rules").style.display = "none";
+            }
+            function warRulesMaximize () {
+                document.getElementById("war-rules").style.display = "block";
+            }
+            function warRulesMinimize () {
+                document.getElementById("war-rules").style.display = "none";
+            }
+            var announcements = {
+                page: 0,
+            }
+            function $newAnnouncement (page,title,date,content) {
+                if (announcements.page === page) {
+                    document.getElementById('announcements-title').innerHTML = "<div id = 'announcements-title' class = 'animated bounceInLeftShort'>" + title + '</div>'
+                    document.getElementById('announcements-date').innerHTML = "<div id = 'announcements-date' class = 'animated bounceInLeftShort'>" + date + '</div>'
+                    document.getElementById('announcements-content').innerHTML = "<div id = 'announcements-content' class = 'animated bounceInLeftShort'>" + content + '</div>';
+                }
+            }
+                $newAnnouncement(0,"New Website Released!","July 19, 2017",
+                ["<img width = '600' height = '300' src = 'https://assets-cloud.enjin.com/themes/1485687438_battle-of-manzikert-great-byzantine-defeats-part-iv-battle-of-manzikert-crusades-470607987.jpg'>","<br><br>July 19th, 2017 - Los Angeles, CA.<br><br>The Website Forums have finally been finished! The path to completion for the Persistent History website is within measurable distance of its end."]
+                );
+                function popupForum () {
+                    document.getElementById("forumsSection").style.position = "fixed";
+                    document.getElementById("forumsSection").style.left = "0px";
+                    document.getElementById("forumsSection").style.top = "0px";
+                    
+                    document.getElementById("backToHome").style.visibility = "visible";
+                    document.getElementById("editor-button").style.visibility = "visible";
+                    console.log(window.location.href);
+                }
+                function unpopupForum () {
+                    document.getElementById("forumsSection").style.position = "absolute";
+                    document.getElementById("forumsSection").style.left = "";
+                    document.getElementById("forumsSection").style.top = "200%";
+                    
+                    document.getElementById("backToHome").style.visibility = "hidden";
+                    document.getElementById("editor-button").style.visibility = "hidden";
+                }
+                function jump(h){
+                    var url = location.href;               //Save down the URL without hash.
+                    location.href = "#"+h;                 //Go to the target element.
+                    history.replaceState(null,null,url);   //Don't like hashes. Changing it back.
+                }
+                setInterval(function(){
+                    currentURL = window.location.href;
+                    if (currentURL.indexOf("#!") != -1 || currentURL.indexOf("#forum") != -1 || currentURL.indexOf("#dynmap") != -1 || currentURL.indexOf("#shop") != -1 || currentURL.indexOf("#helper-application") != -1 || currentURL.indexOf("#assassination-app") != -1 || currentURL.indexOf("#support-app") != -1) {
+                        popupForum();
+                    }
+                    
+                    if (currentURL.indexOf("#home") != -1){
+                        unpopupForum();
+                        closeWYSIWYG();
+                    }
+                },100);
+                document.getElementById("backToHome").onclick = function () {
+                    unpopupForum();
+                    jump("home");                
+                }
+        </script>
+        <script src = "OnScroll/js/css3-animate-it.js">
+        </script>
+        <!--Forums CSS-->
+        <style type = "text/css">
+            div[data-url^="https://muut.com/i/persistenthistory"] {
+            	background-image: url("https://preview.ibb.co/i8frh5/2017_05_24_19_24_07.png");
+            	background-repeat: no-repeat;
+            	background-attachment: fixed;
+            	background-size: cover;
+            	overflow: auto;
+            }
+            .is-forum {
+            	max-height: 100%;
+            }
+            .m-sidebar {
+            	background-color: rgba(255,255,255,0.7);
+            }
+            #moot-logo {
+            	position: fixed;
+            	bottom: -10000000000000000000000000000000000000000000000000000000000000000px;
+            }
+            .m-header {
+            	background-color: rgba(0,0,0,0.65);
+            	padding-bottom: 5px;
+            }
+            .m-selected {
+            	background-color: rgba(20,20,20,0.7) !important;
+            	border-bottom: 5px solid white;
+            }
+            .m-navi a:before {
+            	color: white !important;
+            }
+            .m-selected {
+            	font-family: "Roboto" !important;
+            	font-weight: 100 !important;
+            	color: white !important;
+            }
+            .m-nav-all,.m-nav-feed {
+            	font-family: "Montserrat";
+            	color: white !important;
+            }
+            
+            /*--Replace Text DOM Simulator--*/
+            .m-h3.m-forums-title {
+            	visibility: hidden !important;
+            }
+            .m-h3.m-forums-title:before {
+            	visibility: visible !important;
+            	font-family: "Raleway";
+            	color: rgba(0,0,0,0.83) !important;
+            	font-weight: 300;
+            	font-size: 22px;
+            	content: "Sub-Forums:";
+            }
+            input[placeholder="Search"] {
+            	font-family: "Lato";
+            	font-weight: 300;
+            }
+            .m-focused .m-input-wrap {
+            	border-color: white;
+            	box-shadow: 0 0 0em white inset;
+            }
+            .m-input-wrap {
+            	border-color: white !important;
+            }
+            /*--Typography--*/
+            
+            .m-show-help,.m-input-title,.m-input-wrap,.m-title {
+            	font-family: "Montserrat";
+            	font-weight: 700;
+            	color: white;
+            }
+            .m-input-body,.m-body {
+            	font-family: "Lato";
+            	font-weight: 300;
+            	color: white;
+            }
+            div[riot-tag="msg-launcher"] {
+            	visibility: hidden;
+            }
+            button[title="ctrl + enter"] {
+            		font-family: "Raleway";
+                    font-weight: 300;
+                    color: black;
+                    background-color: rgba(0,0,0,0.0000000000001);
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    border: 3px solid white;
+                    text-decoration: none;
+            }
+            button[title="ctrl + enter"]:hover {
+            	animation: hoverHome 2s forwards;
+            }
+            button[title="ctrl + enter"]:not(:hover) {
+            	animation: reverseHoverHome 2s forwards;
+            }
+            em:after { color: white; }
+            .m-select {
+            	font-family: "Lato";
+            	font-weight: 700;
+            	color: white;
+            }
+            span[style="display: inline;"] {
+            	font-family: "Lato";
+            	font-weight: 300;
+            	color: white;
+            }
+            .m-select option {
+            	font-family: "Roboto";
+            	font-weight: 300;
+            	color: black;
+            	margin-left: 5px;
+            }
+            .m-forums.m-links p a {
+            	font-family: "Lato";
+            	font-weight: 300;
+            	color: white;
+            	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+            }
+            .m-h3.m-users-title {
+            	font-family: "Roboto";
+            	font-weight: 700;
+            }
+            .m-anon-count {
+            	font-family: "Montserrat";
+            }
+            .m-meta {
+            	font-family: "Raleway";
+            	color: white;
+            }
+            .m-preview-title {
+            	font-family: "Montserrat";
+            	font-weight: 700;
+            	color: white;
+            }
+            .m-pagetitle div {
+            	font-family: "Roboto";
+            	font-weight: 100;
+            	color: white !important;
+            	text-decoration: 3px 3px 3px rgba(0,0,0,0.3);
+            }
+            .m-input-title {
+            	border-bottom: 1px solid white !important;
+            }
+            .m-post-upload em {
+            	color: white !important;
+            }
+            .m-tooltip {
+            	font-family: "Lato";
+            	font-weight: 300;
+            	font-size: 14px;
+            }
+            .m-action.m-like {
+            	text-decoration: none;
+            	color: white;
+            	font-family: "Raleway";
+            	padding-left: 20px;
+            	padding-right: 20px;
+            	padding-top: 10px;
+            	padding-bottom: 10px;
+            	display: block;
+            	border: 3px solid white;
+            	max-width: 12%;
+            	margin-top: 20px;
+            }
+            .m-time,.m-tooltip,.m-cat a,span.m-icon,.m-menu.m-icon.m-active,em.m-icon,.m-menu.m-icon.m-active,.m-menu.m-icon {
+            	color: white !important;
+            }
+            .m-tooltip {
+            	font-size: 14px;
+            }
+            .m-body-wrap,.m-reply.m-editable.m-followup,.m-reply.m-followup {
+            	border-left: 1px solid white !important;
+            }
+            .m-collapse-all.m-shown a {
+            	color: white;
+            	font-family: "Lato";
+            }
+            .m-postinput {
+            	color: black;
+            	font-family: "Raleway";
+            }
+            .m-body {
+            	padding-left: 5%;
+            }
+            .m-myname {
+            	color: white;
+            	font-family: "Lato";
+            	font-weight: 300;
+            }
+            .m-down {
+            	color: white;
+            	font-family: "Montserrat";
+            }
+            .m-upload a {
+            	font-family: "Raleway";
+            	font-weight: 300;
+            }
+            .m-h3 strong {
+            	color: rgba(0,0,0,0.83);
+            	font-family: "Montserrat";
+            	font-weight: 700;
+            }
+            .m-h2 {
+            	font-family: "Open Sans";
+            	font-weight: 400;
+            }
+            .m-status {
+            	font-family: "Raleway";
+            }
+            .m-logout {
+            	font-family: "Roboto";
+            }
+            div.m-h3 {
+            	font-family: "Montserrat";
+            }
+            input.m-input {
+            	font-family: "Raleway";
+            	font-weight: 300;
+            }
+            .m-right,.m-after-trial-tip {
+            	font-family: "Lato";
+            }
+            label {
+            	font-family: "Raleway";
+            }
+            #m-unfollow-all em {
+            	font-family: "Montserrat" !important;
+            }
+            #m-unfollow-all a {
+            	font-family: "Raleway" !important;
+            }
+            a.m-password,a.m-my-profile {
+            	font-family: "Roboto";
+            }
+            .m-upgrade.m-button {
+            	font-family: "Roboto";
+            }
+            .m-active { font-family: "Montserrat"; }
+            .m-links p {
+            	font-family: "Raleway";
+            }
+            .m-dialog-title,.m-dialog-body {
+            	font-family: "Roboto";
+            }
+        </style>
+        <!--Even more Forums CSS (Forums+)-->
+        <style type = "text/css">
+            a[href*="$script"] {
+            	pointer-events: none;
+            }
+            
+            /*--Serif--*/
+            a[href*="TimesNewRoman"] ~ * {
+            	font-family: "Times New Roman" !important;
+            }
+            a[href*="Georgia"] {
+            	font-family: "Georgia" !important;
+            }
+            a[href*="Slabo27px"] {
+            	font-family: "Slabo 27px" !important;
+            }
+            
+            /*--Headers--*/
+            a[href*="Montserrat"] {
+            	font-family: "Montserrat" !important;
+            }
+            a[href*="Oswald"] { 
+            	font-family: "Oswald" !important;
+            }
+            
+            /*--Sans Serif--*/
+            a[href*="sans-serif"] {
+            	font-family: sans-serif !important;
+            }
+            a[href*="Tahoma"] {
+            	font-family: "Tahoma" !important;
+            }
+            a[href*="OpenSans"] {
+            	font-family: "Open Sans" !important;
+            }
+            a[href*="Roboto"] {
+            	font-family: "Roboto" !important;
+            }
+            a[href*="Lato"] {
+            	font-family: "Lato" !important;
+            }
+            a[href*="Raleway"] {
+            	font-family: "Raleway" !important;
+            }
+            a[href*="Dosis"] {
+            	font-family: "Dosis" !important;
+            }
+            
+            a[href*="color00"] { color: #eeeeee; } a[href*="color01"] { color: #bebebe; } a[href*="color02"] { color: #7a7a7a } a[href*="color03"] { color: #4e4e4e; } a[href*="color04"] { color: #3e3e3e; } a[href*="color05"] { color: #282828; } a[href*="color06"] { color: #181818; } a[href*="color07"] { color: #f3b2b1; } a[href*="color08"] { color: #f3d9b1; } a[href*="color09"] { color: #f3efb1; } a[href*="color10"] { color: #caf3b1; } a[href*="color11"] { color: #b1c6f3; } a[href*="color12"] { color: #ccb1f3; } a[href*="color13"] { color: #eeacf9; } a[href*="color14"] { color: #dd2423; } a[href*="color15"] { color: #dd9323; } a[href*="color16"] { color: #ddd123; } a[href*="color17"] { color: #6cdd23; } a[href*="color18"] { color: #239edd; } a[href*="color19"] { color: #2360dd; } a[href*="color20"] { color: #6e23dd; } a[href*="color21"] { color: #d113ee; } a[href*="color22"] { color: #761413; } a[href*="color23"] { color: #764f13; } a[href*="color24"] { color: #767013; } a[href*="color25"] { color: #3a7613; } a[href*="color26"] { color: #135476; } a[href*="color26"] { color: #133376; } a[href*="color27"] { color: #3b1376; } a[href*="color28"] { color: #6f0a7f; }
+            
+            /*--Basic Formatting--*/
+            
+            a[href*="Bold"] {
+            	font-weight: bold;
+            }
+            a[href*="Italic"] {
+            	font-style: italic;
+            }
+            a[href*="Underline"] {
+            	text-decoration: underline;
+            }
+            
+            /*--Other Elements--*/
+            a[href*="$H1"],h1 {
+            	display: block;
+                font-size: 2em;
+                -webkit-margin-before: 0.67em;
+                -webkit-margin-after: 0.67em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                font-weight: bold;
+            }
+            a[href*="$H2"],h2 {
+            	display: block;
+                font-size: 1.5em;
+                -webkit-margin-before: 0.83em;
+                -webkit-margin-after: 0.83em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                font-weight: bold;
+            }
+            
+            /*--Display Images--*/
+            .m-image::after {content:attr(href,url)}
+            .m-image.m-thumb img {
+            	width: auto;
+            	height: auto;
+            	opacity: 1 !important;
+            	filter: none !important;
+            	visibility: visible !important;
+            }
+            .m-image.m-thumb img:hover {
+            	pointer-events: none;
+            	cursor: default !important;
+            }
+            .m-image.m-thumb {
+            	visibility: hidden;
+            }
+            .m-image.m-thumb:hover { cursor: default !important; }
+            .m-image.m-thumb { cursor: default !important; }
+            .m-body { padding-left: 0px !important; }
+            .m-body-wrap { padding-left: 10px !important; }
+            .m-body {
+            	font-size: 1em;
+            }
+            font[size="1"] { font-size: 0.67em; } font[size="2"] { font-size: 0.83em; } font[size="3"] { font-size: 1em; } font[size="4"] { font-size: 1.5em; } font[size="5"] { font-size: 2em; } font[size="6"] { font-size: 2.5em; } font[size="7"] { font-size: 3em; }
+            
+            h1 {
+            	font-size: 2em !important;
+            }
+            h2 {
+            	font-size: 1.5em !important;
+            }
+            
+            blockquote[style="margin: 0 0 0 40px; border: none; padding: 0px;"] {
+            	visibility: hidden !important;
+            }
+            .m-users {
+            	position: relative !important;
+            	bottom: 80% !important;
+            }
+            
+            /**--Help--**/
+            
+            
+            /**'bebebe','989898','7a7a7a','4e4e4e','3e3e3e','282828','181818','f3b2b1','f3d9b1','f3efb1','caf3b1','b1dcf3','b1c6f3','ccb1f3','eeacf9','dd2423','dd9323','ddd123','6cdd23','239edd','2360dd','6e23dd','d113ee','761413','764f13','767013','3a7613','135476','133376','3b1376','6f0a7f--**/
+        </style><iframe src = "http://persistent-history.dynu.com:8123/" width = "100%" height = "100%" style = "position: absolute; top: 500%; width: 100%; height: 100%; border: 0px;" id = "dynmap"></iframe>
+        
+        <!--Shop-->
+        <!--Local CSS-->
+        <style type = "text/css">
+            #shop-container {
+                position: absolute;
+                top: 600%;
+                width: 100%;
+                height: 100%;
+                background-image: url("https://s3.postimg.org/3tznjtmn7/2017-07-31_13.04.37.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            #shop-main-container {
+                margin-left: 20%;
+                margin-right: 20%;
+                margin-top: 5%;
+                max-height: 22% !important;
+                display: flex;
+                align-items: top;
+            }
+            #shop-item {
+                width: 20%;
+                height: 25% !important;
+                background-color: rgba(0,0,0,0.65);
+                font-family: "Raleway";
+                font-weight: 300;
+                color: white;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+                font-size: 1.5em;
+                padding-bottom: 10px;
+                margin-left: 1.5%;
+            }
+            
+            #benefits-weekly {
+                display: none;
+                opacity: 0;
+                max-width: 100%;
+                height: 250px;
+                margin-left: 5%;
+                margin-right: 1.5%;
+                position: relative;
+                font-family: "Raleway";
+                font-size: 0.6em;
+                transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+                text-align: left;
+                width: 70%;
+                overflow-y: auto !important;
+                overflow-x: hidden;
+            }
+            
+            #benefits-monthly {
+                display: none;
+                opacity: 0;
+                max-width: 100%;
+                height: 250px;
+                margin-left: 5%;
+                margin-right: 1.5%;
+                position: relative;
+                font-family: "Raleway";
+                font-size: 0.6em;
+                transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+                text-align: left;
+                width: 70%;
+                overflow-y: auto !important;
+                overflow-x: hidden;
+            }
+            
+            #benefits-yearly {
+                display: none;
+                opacity: 0;
+                max-width: 100%;
+                height: 250px;
+                margin-left: 5%;
+                margin-right: 1.5%;
+                position: relative;
+                font-family: "Raleway";
+                font-size: 0.6em;
+                transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+                text-align: left;
+                width: 70%;
+                overflow-y: auto !important;
+                overflow-x: hidden;
+            }
+            #benefits-none {
+                display: none;
+                opacity: 0;
+                max-width: 100%;
+                height: 250px;
+                margin-left: 5%;
+                margin-right: 1.5%;
+                position: relative;
+                font-family: "Raleway";
+                font-size: 0.6em;
+                transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+                text-align: left;
+                width: 70%;
+                overflow-y: auto !important;
+                overflow-x: hidden;
+            }
+            
+            @keyframes showBenefits {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .shop-item-1:hover #benefits-weekly {
+                animation: showBenefits 2s forwards;
+                display: block;
+            }
+            .shop-item-2:hover #benefits-monthly {
+                animation: showBenefits 2s forwards;
+                display: block;
+            }
+            .shop-item-3:hover #benefits-yearly {
+                animation: showBenefits 2s forwards;
+                display: block;
+            }
+            .shop-item-4:hover #benefits-none {
+                animation: showBenefits 2s forwards;
+                display: block;
+            }
+            #shop-main-container a { text-decoration: none; }
+            
+        </style>
+        
+        
+        <div id = "shop-container" class = 'animatedParent'>
+            <span id = "shop"></span>
+            <center>
+                <div id = "shop-main-container" align = "center">
+                   
+                        <div id = "shop-item" class = "shop-item-1">
+                             <a href = "https://www.paypal.com/webapps/hermes?token=73B036028D927584C&useraction=commit&mfid=1501552500052_add54e2e6f6e5#/checkout/guest">
+                             
+                            <img src = "http://piq.codeus.net/static/media/userpics/piq_70437_400x400.png" width = "100%" height = "80%">
+                            </a>
+                            One week Premium
+                            
+                            
+                            <div id = "benefits-weekly">
+                                <div style = "font-size: 1em;">
+                                    <strong>$9.50</strong>
+                                </div>
+                                
+                                Support our server by subscribing for one week. All subscriptions are non-recurring meaning you will have to renew manually. This package includes the following perks:<br><br>
+                                
+                                + Donator tag on the website.<br>
+                                + Recieve the Donator award tag.<br><br>
+                                
+                                + Repair your gear with the /repair command.<br>
+                                + Give yourself a hat with the /hat command.<br>
+                                + Edit sealed books with the /book command.<br>
+                                + Use /nick without applying for a character.<br>
+                                + Build faster with /lc creative.<br>
+                            </div>
+                        </div>
+                        <div id = "shop-item" class = "shop-item-2">
+                            <a href = "https://www.paypal.com/webapps/hermes?token=20712781VX8239312&useraction=commit&mfid=1501552614336_22aecc4ec521b#/checkout/guest">
+                            <img src = "http://piq.codeus.net/static/media/userpics/piq_66207_400x400.png" width = "100%" height = "80%">
+                            </a>
+                            One month Premium
+                            
+                            <div id = "benefits-monthly">
+                                <div style = "font-size: 1em;">
+                                    <strong>$20.00</strong>
+                                </div>
+                                
+                                Support our server by subscribing for one month. All subscriptions are non-recurring meaning you will have to renew manually. This package includes the following perks:<br><br>
+                                
+                                [*] Donator tag on the website.<br>
+                                [*] Receive the donator award tag.<br><br>
+                                
+                                [*] Repair your gear with the /repair command.<br>
+                                [*] Give yourself a hat with the /hat command.<br>
+                                [*] Edit sealed books with the /book command.<br>
+                                [*] Use /nick without applying for a character.<br>
+                                [*] Build faster with /lc creative.<br>
+                            </div>
+                        </div>
+                        <div id = "shop-item" class = "shop-item-3">
+                            <a href = "https://www.paypal.com/webapps/hermes?token=1C687307EN385994E&useraction=commit&mfid=1501552646875_ba535f5454d8a">
+                            <img src = "https://s-media-cache-ak0.pinimg.com/736x/16/c1/a4/16c1a492d460ddfe796d95cd1de482fe--minecraft-world-minecraft-party.jpg" width = "100%" height = "80%">
+                            </a>
+                            One year Premium
+                            
+                            <div id = "benefits-yearly">
+                                <div style = "font-size: 1em;">
+                                    <strong>$60.00</strong>
+                                </div>
+                                
+                                Support our server by subscribing for one year. This item is the best bang for your buck! All subscriptions are non-recurring meaning you will have to renew manually. This package includes the following perks:<br><br>
+
+                                [*] Donator tag on the website.<br>
+                                [*] Receive the donator award tag.<br><br>
+                                
+                                [*] Repair your gear with the /repair command.<br>
+                                [*] Give yourself a hat with the /hat command.<br>
+                                [*] Edit sealed books with the /book command.<br>
+                                [*] Use /nick without applying for a character.<br>
+                                [*] Build faster with /lc creative.<br>
+                            </div>
+                        </div>
+                        <div id = "shop-item" class = "shop-item-4">
+                            <a href = "https://www.paypal.com/webapps/hermes?token=39091600CJ416863L&useraction=commit&mfid=1501552679727_266864343982b#/checkout/signup">
+                                <img src = "https://s-media-cache-ak0.pinimg.com/236x/c9/bf/fa/c9bffa631ad180ec990565ddd6bcb037--minecraft-quilt-emeralds.jpg" width = "100%" height = "80%">
+                            </a>
+                            Custom<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <div id = "benefits-none">
+                                <div style = "font-size: 1em;">
+                                    <strong>$5.00</strong>
+                                </div>
+                                
+                                Already got all the perks from donating but still want to give more?
+                            </div>
+                        </div><br>
+                </div>
+            </center>
+        </div>
+        
+        <iframe id = "helper-application" src="https://docs.google.com/forms/d/e/1FAIpQLSccSE994bukBMLQ5VyRi0sGf-StXg2TUm2Qws7lF_R1ofNXBA/viewform?embedded=true" style = 'position: absolute; top: 700%; height: 100%; width: 100%;' frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        
+        <!--Gallery/Apps CSS-->
+        <style type = "text/css">
+            #gallery-container {
+                position: absolute;
+                top: 800%;
+                height: 100%;
+                width: 100%;
+            }
+            #assassination-app {
+                position: absolute;
+                top: 900%;
+                height: 100%;
+                width: 100%;
+            }
+            #support-app {
+                position: absolute;
+                top: 1000%;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+        
+        <div id = "gallery-container">
+            <!-- Root element of PhotoSwipe. Must have class pswp. -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        
+            <!-- Background of PhotoSwipe. 
+                 It's a separate element, as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
+        
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
+        
+                <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+                <div class="pswp__container">
+                    <!-- don't modify these 3 pswp__item elements, data is added later on -->
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+        
+                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                <div class="pswp__ui pswp__ui--hidden">
+        
+                    <div class="pswp__top-bar">
+        
+                        <!--  Controls are self-explanatory. Order can be changed. -->
+        
+                        <div class="pswp__counter"></div>
+        
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        
+                        <button class="pswp__button pswp__button--share" title="Share"></button>
+        
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        
+                        <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                              <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div> 
+                    </div>
+        
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                    </button>
+        
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                    </button>
+        
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+        
+                  </div>
+        
+                </div>
+        
+        </div>
+        </div>
+        <iframe id = "assassination-app" src="https://docs.google.com/forms/d/e/1FAIpQLSeghvowGmlmXDFMKjUE0MCdTh_7gSy3f1_J0iG7WL-yznpqRA/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe id = "support-app" src="https://docs.google.com/forms/d/e/1FAIpQLScr0-TpvliE2ZW2oBJlHUWJySeL8JUEBmyMv4_AF-fBBhkg-g/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        
+        <!--Photoswipe script-->
+        <script type = "text/javascript">
+            var openPhotoSwipe = function() {
+                var pswpElement = document.querySelectorAll('.pswp')[0];
+            
+                // build items array
+                var items = [
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2804727.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2805007.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2805010.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2808341.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2804246.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    //break
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2804247.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2804250.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2804252.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2804253.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    //break
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2804255.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2803236.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2811471.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2824017.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2817885.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    //War!
+                    
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2807819.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2806610.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2830847.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    //General
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2806747.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                    {
+                        src: 'https://files-cloud.enjin.com/1380030/module_gallery/full/2812357.jpg',
+                        w: 915,
+                        h: 571
+                    },
+                ];
+                
+                // define options (if needed)
+                var options = {
+                         // history & focus options are disabled on CodePen        
+                    history: false,
+                    focus: false,
+            
+                    showAnimationDuration: 0,
+                    hideAnimationDuration: 0
+                    
+                };
+                
+                var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+                gallery.init();
+            };
+
+        </script>
+        
+        <script>
+            $(document).keydown(function (e) 
+            {
+                var keycode1 = (e.keyCode ? e.keyCode : e.which);
+                if (keycode1 == 0 || keycode1 == 9) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
+        </script>
+        
+        <style type = "text/css">
+            #clock-display {
+                position: fixed;
+                left: 30%;
+                right: 30%;
+                text-align: center;
+                font-family: "Montserrat";
+                font-size: 1.5em;
+                color: white;
+                bottom: 0px;
+                text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-top: 2%;
+                padding-bottom: 20px;
+                background-color: rgba(0,0,0,0.7);
+            }
+        </style>
+        
+        <div id = "clock-display">
+            January 1st, 0000 00:00
+        </div>
+        <!--Clock Script-->
+        
+        <script type = "text/javascript">
+            setInterval(function(){
+                var oneMilli = 1000; // hours*minutes*seconds*milliseconds
+                var oneyear = 24*60*60*3;
+                var onemonth = oneyear/12;
+                var oneday = oneyear/365;
+                var onehour = oneday/24;
+                var oneminute = onehour/60;
+                
+                var firstDate = new Date(2017,02,17);
+                var secondDate = new Date();
+                
+                var diffTime = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneMilli)));
+                
+                var year = Math.floor(diffTime/oneyear)+9+1760;
+                var month = Math.floor(diffTime/21600)+108;
+                var day = Math.floor(diffTime/710.136986)+3285;
+                var hour = Math.floor(diffTime/29.5890411)+78840;
+                var minute = Math.floor(diffTime/0.493150685)+4730400;
+                
+                var suffix = "th";
+                var displaymonth = "January";
+                
+                var actualmonth = month % 13;
+                var actualday = (day % 31)+1;
+                var actualhour = hour % 24;
+                var actualminute = minute % 60;
+                
+                var minutezero = "";
+                var hourzero = "";
+                
+                if (actualday === 0) {
+                    actualday = 1;
+                }
+                
+                if (actualday === 1 || actualday === 21 || actualday === 31) {
+                    suffix = "st";
+                } else if (actualday === 2 || actualday === 22) {
+                    suffix = "nd";
+                } else if (actualday === 3 || actualday === 23) {
+                    suffix = "rd";
+                } else {
+                    suffix = "th";
+                }
+                
+                if (actualmonth === 1) {
+                    displaymonth = "January";
+                } else if (actualmonth === 2) {
+                    displaymonth = "February";
+                } else if (actualmonth === 3) {
+                    displaymonth = "March";
+                } else if (actualmonth === 4) {
+                    displaymonth = "April";
+                } else if (actualmonth === 5) {
+                    displaymonth = "May";
+                } else if (actualmonth === 6) {
+                    displaymonth = "June";
+                } else if (actualmonth === 7) {
+                    displaymonth = "July";
+                } else if (actualmonth === 8) {
+                    displaymonth = "August";
+                } else if (actualmonth === 9) {
+                    displaymonth = "September";
+                } else if (actualmonth === 10) {
+                    displaymonth = "October";
+                } else if (actualmonth === 11) {
+                    displaymonth = "November";
+                } else if (actualmonth === 12) {
+                    displaymonth = "December";
+                }
+                if (actualhour < 10) {
+                    hourzero = "0";
+                } else {
+                    hourzero = "";
+                }
+                if (actualminute < 10) {
+                    minutezero = "0";
+                } else {
+                    minutezero = "";
+                }
+                
+                document.getElementById("clock-display").innerHTML = displaymonth + " " + actualday + suffix + ", " + year + " " + hourzero + actualhour + ":" + minutezero + actualminute;
+                
+            },100);
+            
+            
+            
+        </script>
+        
+    </body>
+</html>
