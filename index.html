@@ -641,7 +641,9 @@
                           outputText = outputText.replace(/“/g,"");
                           outputText = outputText.replace(/=""/g,"");
                           outputText = outputText.replace(/<p>/g,"");
+                          outputText = outputText.replace(/<i>/g,"_");
                           outputText = outputText.replace(/<\/?p[^>]*>/g, "");
+                          outputText = outputText.replace(/<\/?i[^>]*>/g, "_");
                           outputText = outputText.replace(/background-color:"/g,'background-color:');
                           document.getElementsByClassName("m-body")[i].innerHTML = outputText;
                           console.log(outputText);
@@ -1499,6 +1501,9 @@
         <!--Guide-->
         
         <style type = "text/css">
+            blockquote {
+                color: white !important;
+            }
             #guideSection {
                 position: absolute;
                 top: 400%;
